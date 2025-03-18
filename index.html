@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGPA Calculator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: var(--styling-container);">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">CGPA Calculator</a>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="card">
+            <h3 class="text-center">Enter Your Grades</h3>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <input type="text" id="course-name" class="form-control" placeholder="Course Name">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <input type="number" id="credit-hours" class="form-control" placeholder="Credit Hours" min="1" max="6">
+                </div>
+            </div>
+            <button class="btn btn-custom w-100" onclick="addCourse()">+ Add Course</button>
+            <div class="table-responsive mt-3">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Course Name</th>
+                            <th>Credit Hours</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="course-list">
+                    </tbody>
+                </table>
+            </div>
+            <button class="btn btn-custom w-100 mt-3" onclick="calculateGPA()">Calculate GPA</button>
+        </div>
+
+        <!-- GPA Result Display -->
+        <div class="card mt-4" id="gpa-result" style="display: none;">
+            <h3 class="text-center">GPA Result</h3>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Course Name</th>
+                            <th>Credit Hours</th>
+                            <th>Total Marks</th>
+                            <th>Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody id="gpa-details">
+                    </tbody>
+                </table>
+            </div>
+            <h4 class="text-center mt-3">Your GPA: <span id="final-gpa"></span></h4>
+        </div>
+    </div>
+
+    <!-- Manage Marks Popup -->
+    <div id="marksPopup" class="marks-popup">
+        <div class="popup-container">
+            <button class="close-btn" onclick="closePopup()">✖</button>
+            <h3 id="popup-title">Manage Marks</h3>
+            <p id="popup-credit">Credit Hours: <span></span></p>
+
+            <!-- Marks Input Form -->
+            <div class="form-group">
+                <select id="marks-type" class="form-control">
+                    <option value="Quiz">Quiz</option>
+                    <option value="Assignment">Assignment</option>
+                    <option value="Class Participation">Class Participation</option>
+                    <option value="Project Presentation">Project Presentation</option>
+                    <option value="Midterm">Midterm</option>
+                    <option value="Final">Final</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="number" id="total-marks" class="form-control" placeholder="Total Marks">
+            </div>
+            <div class="form-group">
+                <input type="number" id="obtained-marks" class="form-control" placeholder="Obtained Marks">
+            </div>
+            <button class="btn btn-success" onclick="addMarks()">+ Add</button>
+
+            <!-- Display Marks Here -->
+            <div id="marks-list"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p>Developed By: Anas Mughal | &copy; 2023 All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

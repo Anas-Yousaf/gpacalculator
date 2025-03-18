@@ -1,0 +1,200 @@
+:root {
+    --background: #EDE8DC;
+    --styling-container: #B17F59;
+    --icons: #A5B68D;
+    --text: black;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    flex: 1;
+}
+
+.card {
+    background-color: var(--styling-container);
+    color: var(--text);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.btn-custom {
+    background-color: var(--icons);
+    color: white;
+    border: none;
+}
+
+.btn-custom:hover {
+    background-color: #8DA478;
+}
+
+/* Popup Styling */
+.marks-popup {
+    background: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+}
+
+.popup-container {
+    background: white;
+    width: 90%;
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+    max-height: 80vh;
+    overflow-y: auto; /* Makes popup scrollable */
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: red;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+/* Section Styling */
+.marks-section {
+    margin-top: 20px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.marks-section h5 {
+    background: #007bff;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.marks-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.marks-list .card {
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    width: 48%;
+    text-align: center;
+    position: relative;
+}
+
+.delete-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: red;
+    color: white;
+    border: none;
+    font-size: 14px;
+    padding: 4px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Footer Styling */
+.footer {
+    background-color: var(--styling-container);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .btn-custom {
+        font-size: 14px;
+    }
+
+    .marks-popup .popup-container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .marks-list .card {
+        width: 100%; /* Full width on mobile */
+    }
+
+    .footer p {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-brand {
+        font-size: 18px;
+    }
+
+    .card h3 {
+        font-size: 20px;
+    }
+
+    .form-control {
+        font-size: 14px;
+    }
+
+    .btn-custom {
+        padding: 8px;
+    }
+
+    .marks-popup .popup-container {
+        max-height: 90vh;
+    }
+
+    .marks-section h5 {
+        font-size: 16px;
+    }
+
+    .marks-list .card {
+        font-size: 14px;
+    }
+}
